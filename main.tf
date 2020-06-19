@@ -25,7 +25,7 @@ module "cosmos" {
   source = "./modules/cosmos"
 }
 
-resource "azurerm_storage_account" "storage" {
+resource "azurerm_storage_account" "funcstorage" {
   name                     = "functionsappmobilitysa"
   location                 = data.azurerm_resource_group.main.location
   resource_group_name      = data.azurerm_resource_group.main.name
