@@ -27,3 +27,8 @@ variable "cosmosdb_primary_master_key" {
   description = "Function App cosmos key."
   type        = string
 }
+
+variable "function_app_name" {
+  description = "Function App name"
+  type        = string
+}

@@ -11,7 +11,7 @@ resource "azurerm_app_service_plan" "asp" {
 }
 
 resource "azurerm_function_app" "mobility" {
-  name                      = "mobility-azure-functions"
+  name                      = "${var.function_app_name}"
   location                  = "${var.function_app_location}"
   resource_group_name       = "${var.function_app_resource_group_name}"
   app_service_plan_id       = "${var.aspId}"

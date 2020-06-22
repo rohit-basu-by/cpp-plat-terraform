@@ -4,7 +4,6 @@ terraform {
   required_version = ">= 0.12.6"
 }
 
-
 variable "subscription_id" {
   description = "Azure subscription Id."
   type        = string
@@ -15,7 +14,7 @@ variable "tenant_id" {
   type        = string
 }
 
-variable "rg_infr_name" {
-  description = "infra resource group name."
+variable "app_name" {
+  description = "Application name used in objects naming convention."
   type        = string
 }

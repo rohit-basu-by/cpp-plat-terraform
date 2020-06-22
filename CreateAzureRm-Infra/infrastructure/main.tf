@@ -7,10 +7,10 @@ provider "azurerm" {
   #   features {}
   version = "=2.4.0"
 
-  subscription_id = "00000000-0000-0000-0000-000000000000"
-  client_id       = "00000000-0000-0000-0000-000000000000"
+  subscription_id = var.subscription_id
+  client_id       = var.client_id
   client_secret   = var.client_secret
-  tenant_id       = "00000000-0000-0000-0000-000000000000"
+  tenant_id       = var.tenant_id
 
   features {}
 }
@@ -26,7 +26,7 @@ module "Create-AzCosmos-Infr" {
 }
 
 module "Create-AzStorage-Infr" {
-  source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=master"
+  source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Storage?ref=master"
   storage_resource_group = data.azurerm_resource_group.Infr.name
   storage_location       = data.azurerm_resource_group.Infr.location
 }
