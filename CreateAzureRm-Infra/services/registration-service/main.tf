@@ -17,23 +17,12 @@ provider "azurerm" {
 data "azurerm_resource_group" "Infr" {
   name = var.rg_infr_name
 }
-resource "azurerm_app_service_plan" "asp" {
-  name                = "azure-functions-mobility-service-plan"
-  location            = data.azurerm_resource_group.Infr.location
-  resource_group_name = data.azurerm_resource_group.Infr.name
-  kind                = "FunctionApp"
-
-  sku {
-    tier = "Dynamic"
-    size = "Y1"
-  }
-}
 
 module "Create-FunctionApp-Registration-App" {
   source                           = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=master"
   name                             = "${var.function_app_name}"
   function_app_resource_group_name = data.azurerm_resource_group.Infr.name
   function_app_location            = data.azurerm_resource_group.Infr.location
-  app_service_plan_id              = "${azurerm_app_service_plan.asp.id}"
+  app_service_plan_id              = module.Create-AzFunctionAppServicePlan.asp_id
   storage_connection_string        = module.Create-AzStorage-Infr.storage_connection_string
 }
