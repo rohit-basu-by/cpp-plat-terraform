@@ -1,11 +1,7 @@
-data "azurerm_resource_group" "main" {
-  name = var.resource_group_name
-}
-
 resource "azurerm_cosmosdb_account" "cosmosdb" {
   name                = "mobility-nosql"
-  location            = data.azurerm_resource_group.main.location
-  resource_group_name = data.azurerm_resource_group.main.name
+  location            = "${var.cosmos_location}"
+  resource_group_name = "${var.cosmos_resource_group_name}"
   offer_type          = "Standard"
   kind                = "MongoDB"
 
@@ -18,12 +14,12 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   }
 
   geo_location {
-    location          = "North Europe"
+    location          = "westus"
     failover_priority = 1
   }
 
   geo_location {
-    location          = data.azurerm_resource_group.main.location
+    location          = "${var.cosmos_location}"
     failover_priority = 0
   }
 }
