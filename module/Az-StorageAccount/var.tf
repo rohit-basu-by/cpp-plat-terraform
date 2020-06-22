@@ -1,9 +1,9 @@
-variable "storage_group_name" {
-  description = "Key vault Resource group name."
+variable "storage_resource_group_name" {
+  description = "Storage Resource group name."
   type        = string
 }
 
 variable "storage_location" {
-  description = "Key vault location."
+  description = "Storage location."
   type        = string
 }

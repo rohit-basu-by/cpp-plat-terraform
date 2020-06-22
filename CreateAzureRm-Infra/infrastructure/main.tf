@@ -22,5 +22,11 @@ data "azurerm_resource_group" "Infr" {
 module "Create-AzCosmos-Infr" {
   source                     = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=master"
   cosmos_resource_group_name = data.azurerm_resource_group.Infr.name
-  comos_location             = data.azurerm_resource_group.Infr.location
+  cosmos_location            = data.azurerm_resource_group.Infr.location
+}
+
+module "Create-AzStorage-Infr" {
+  source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=master"
+  storage_resource_group = data.azurerm_resource_group.Infr.name
+  storage_location       = data.azurerm_resource_group.Infr.location
 }
