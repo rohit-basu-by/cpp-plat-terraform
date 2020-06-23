@@ -25,6 +25,33 @@ module "Create-AzCosmos-Infr" {
   cosmos_location            = data.azurerm_resource_group.Infr.location
 }
 
+resource "azurerm_cosmosdb_sql_database" "cpp" {
+  name                = "cpp-database"
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  account_name        = "mobility-nosql"
+}
+resource "azurerm_cosmosdb_sql_container" "collection" {
+  name                = "Customers"
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  account_name        = "mobility-nosql"
+  database_name       = "cpp-database"
+  partition_key_path  = "/CustomerId"
+}
+resource "azurerm_cosmosdb_sql_container" "collection" {
+  name                = "Products"
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  account_name        = "mobility-nosql"
+  database_name       = "cpp-database"
+  partition_key_path  = "/ProductId"
+}
+resource "azurerm_cosmosdb_sql_container" "collection" {
+  name                = "Environments"
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  account_name        = "mobility-nosql"
+  database_name       = "cpp-database"
+  partition_key_path  = "/ENV_KEY"
+}
+
 module "Create-AzStorage-Infr" {
   source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Storage?ref=master"
   storage_resource_group = data.azurerm_resource_group.Infr.name
