@@ -22,9 +22,4 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     location          = "${var.cosmos_location}"
     failover_priority = 0
   }
-
-  app_settings = {
-    abs = 
-
-  }
 }
