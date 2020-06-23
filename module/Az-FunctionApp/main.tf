@@ -17,14 +17,5 @@ resource "azurerm_function_app" "mobility" {
   app_service_plan_id       = "${var.aspId}"
   storage_connection_string = "${var.storage_primary_connection_string}"
 
-  app_settings = {
-    https_only                   = true
-    FUNCTIONS_WORKER_RUNTIME     = "node"
-    WEBSITE_NODE_DEFAULT_VERSION = "~10"
-    FUNCTION_APP_EDIT_MODE       = "readonly"
-    COSMOS_DB_ENDPOINT           = "${var.cosmosdb_endpoint}"
-    COSMOS_DB_MASTERKEY          = "${var.cosmosdb_primary_master_key}"
-    //HASH = "${base64encode(filesha256("${var.functionapp}"))}"
-    //WEBSITE_RUN_FROM_PACKAGE = "https://${azurerm_storage_account.storage.name}.blob.core.windows.net/${azurerm_storage_container.deployments.name}/${azurerm_storage_blob.appcode.name}${data.azurerm_storage_account_sas.sas.sas}"
-  }
+  app_settings = "${var.app_settings}"
 }

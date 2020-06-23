@@ -25,31 +25,37 @@ module "Create-AzCosmos-Infr" {
   cosmos_location            = data.azurerm_resource_group.Infr.location
 }
 
-resource "azurerm_cosmosdb_sql_database" "cpp" {
+resource "azurerm_cosmosdb_mongo_database" "cpp" {
   name                = "cpp-database"
   resource_group_name = data.azurerm_resource_group.Infr.name
   account_name        = "mobility-nosql"
 }
-resource "azurerm_cosmosdb_sql_container" "collection" {
+resource "azurerm_cosmosdb_mongo_collection" "collection" {
   name                = "Customers"
   resource_group_name = data.azurerm_resource_group.Infr.name
   account_name        = "mobility-nosql"
   database_name       = "cpp-database"
-  partition_key_path  = "/CustomerId"
+  default_ttl_seconds = "777"
+  throughput          = 400
+  shard_key           = "customerId"
 }
-resource "azurerm_cosmosdb_sql_container" "collection" {
+resource "azurerm_cosmosdb_mongo_collection" "collection" {
   name                = "Products"
   resource_group_name = data.azurerm_resource_group.Infr.name
   account_name        = "mobility-nosql"
   database_name       = "cpp-database"
-  partition_key_path  = "/ProductId"
+  default_ttl_seconds = "777"
+  throughput          = 400
+  shard_key           = "productId"
 }
-resource "azurerm_cosmosdb_sql_container" "collection" {
+resource "azurerm_cosmosdb_mongo_collection" "collection" {
   name                = "Environments"
   resource_group_name = data.azurerm_resource_group.Infr.name
   account_name        = "mobility-nosql"
   database_name       = "cpp-database"
-  partition_key_path  = "/ENV_KEY"
+  default_ttl_seconds = "777"
+  throughput          = 400
+  shard_key           = "ENV_KEY"
 }
 
 module "Create-AzStorage-Infr" {

@@ -22,4 +22,12 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
     location          = "${var.cosmos_location}"
     failover_priority = 0
   }
+
+  capabilities = [{
+    name : "MongoDBv3.6"
+    },
+    {
+      name : "mongoEnableDocLevelTTL"
+    }
+  ]
 }

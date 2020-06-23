@@ -25,4 +25,13 @@ module "Create-FunctionApp-Registration-App" {
   function_app_location            = data.azurerm_resource_group.Infr.location
   app_service_plan_id              = module.Create-AzFunctionAppServicePlan.asp_id
   storage_connection_string        = module.Create-AzStorage-Infr.storage_connection_string
+
+  app_settings = {
+    https_only                   = true
+    FUNCTIONS_WORKER_RUNTIME     = "node"
+    WEBSITE_NODE_DEFAULT_VERSION = "~10"
+    FUNCTION_APP_EDIT_MODE       = "readonly"
+    COSMOS_DB_ENDPOINT           = module.Create-AzCosmos-Infr.cosmosdb_endpoint
+    COSMOS_DB_MASTERKEY          = module.Create-AzCosmos-Infr.cosmosdb_primary_master_key
+  }
 }
