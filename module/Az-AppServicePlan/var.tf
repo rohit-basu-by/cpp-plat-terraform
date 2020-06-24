@@ -10,7 +10,7 @@ variable "app_service_plan_location" {
 
 variable "app_service_plan_kind" {
   description = "App Service Plan kind."
-  default = "Windows"
+  default     = "Windows"
   type        = string
 }
 
