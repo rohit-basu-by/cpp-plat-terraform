@@ -69,4 +69,9 @@ module "Create-AzFunctionAppServicePlan" {
   app_service_plan_resource_group_name = data.azurerm_resource_group.Infr.name
   app_service_plan_location            = data.azurerm_resource_group.Infr.location
   app_service_plan_kind                = "FunctionApp"
+
+  sku {
+    tier = "Dynamic"
+    size = "Y1"
+  }
 }

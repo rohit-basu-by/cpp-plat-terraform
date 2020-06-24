@@ -5,7 +5,7 @@ resource "azurerm_app_service_plan" "asp" {
   kind                = "${var.app_service_plan_kind}"
 
   sku {
-    tier = "Dynamic"
-    size = "Y1"
+    tier = "${var.app_service_plan_sku_tier}"
+    size = "${var.app_service_plan_sku_size}"
   }
 }
