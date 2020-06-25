@@ -1,0 +1,1 @@
+rg_infr_name = "cpp-terraform-rg"
