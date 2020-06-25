@@ -12,8 +12,3 @@ variable "rg_infr_name" {
   description = "infra resource group name."
   type        = string
 }
-
-variable "parallel" {
-  description = "dummy variable"
-  type = string
-}
