@@ -15,7 +15,12 @@ module "Create-Infrastructure" {
   rg_infr_name = var.rg_infr_name
 }
 
+output "parallel_execution" {
+  value = false
+}
+
 module "Create-Registration-Service" {
   source       = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/registration-service?ref=feature/terraform-final"
   rg_infr_name = var.rg_infr_name
+  parallel_execution = module.Create-Infrastructure.parallel_execution
 }
