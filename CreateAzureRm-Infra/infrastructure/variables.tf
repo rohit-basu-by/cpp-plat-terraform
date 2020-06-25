@@ -7,3 +7,8 @@ terraform {
   }
   required_version = ">= 0.12.6"
 }
+
+variable "rg_infr_name" {
+  description = "infra resource group name."
+  type        = string
+}
