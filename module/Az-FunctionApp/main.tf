@@ -5,5 +5,5 @@ resource "azurerm_function_app" "mobility" {
   app_service_plan_id       = "${var.aspId}"
   storage_connection_string = "${var.storage_primary_connection_string}"
   app_settings              = "${var.app_settings}"
-  parallel = false
+  parallel = "${var.parallel}"
 }
