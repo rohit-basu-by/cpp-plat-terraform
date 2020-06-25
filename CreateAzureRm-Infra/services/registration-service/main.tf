@@ -29,7 +29,6 @@ module "Create-FunctionApp-Registration-App" { //module A
   function_app_location             = data.azurerm_resource_group.Infr.location
   aspId                             = data.terraform_remote_state.infrastructure.outputs.app_service_plan
   storage_primary_connection_string = data.terraform_remote_state.infrastructure.outputs.storage_connection_string // refer module C outisde of A
-  parallel_execution = var.parallel_execution
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
@@ -38,4 +37,5 @@ module "Create-FunctionApp-Registration-App" { //module A
     COSMOS_DB_ENDPOINT           = data.terraform_remote_state.infrastructure.outputs.cosmos_connection
     COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
   }
+  parallel = false
 }
