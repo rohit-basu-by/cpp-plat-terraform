@@ -24,12 +24,12 @@ module "Create-AzCosmos-Infr" {
 resource "azurerm_cosmosdb_mongo_database" "cpp" {
   name                = "cpp-database"
   resource_group_name = data.azurerm_resource_group.Infr.name
-  account_name        = "mobility-nosql"
+  account_name        = "mobility-nosql-mongo"
 }
 resource "azurerm_cosmosdb_mongo_collection" "Customers" {
   name                = "Customers"
   resource_group_name = data.azurerm_resource_group.Infr.name
-  account_name        = "mobility-nosql"
+  account_name        = "mobility-nosql-mongo"
   database_name       = "cpp-database"
   default_ttl_seconds = "777"
   throughput          = 400
@@ -38,7 +38,7 @@ resource "azurerm_cosmosdb_mongo_collection" "Customers" {
 resource "azurerm_cosmosdb_mongo_collection" "Products" {
   name                = "Products"
   resource_group_name = data.azurerm_resource_group.Infr.name
-  account_name        = "mobility-nosql"
+  account_name        = "mobility-nosql-mongo"
   database_name       = "cpp-database"
   default_ttl_seconds = "777"
   throughput          = 400
@@ -47,7 +47,7 @@ resource "azurerm_cosmosdb_mongo_collection" "Products" {
 resource "azurerm_cosmosdb_mongo_collection" "Environments" {
   name                = "Environments"
   resource_group_name = data.azurerm_resource_group.Infr.name
-  account_name        = "mobility-nosql"
+  account_name        = "mobility-nosql-mongo"
   database_name       = "cpp-database"
   default_ttl_seconds = "777"
   throughput          = 400

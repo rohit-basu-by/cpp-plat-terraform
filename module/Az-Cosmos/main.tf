@@ -1,5 +1,5 @@
 resource "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "mobility-nosql"
+  name                = "mobility-nosql-mongo"
   location            = "${var.cosmos_location}"
   resource_group_name = "${var.cosmos_resource_group_name}"
   offer_type          = "Standard"
