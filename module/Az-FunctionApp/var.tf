@@ -14,17 +14,7 @@ variable "aspId" {
 }
 
 variable "storage_primary_connection_string" {
-  description = "Function App location."
-  type        = string
-}
-
-variable "cosmos_endpoint" {
-  description = "Function App cosmos endpoint."
-  type        = string
-}
-
-variable "cosmosdb_primary_master_key" {
-  description = "Function App cosmos key."
+  description = "Function App Storage Connection String"
   type        = string
 }
 
