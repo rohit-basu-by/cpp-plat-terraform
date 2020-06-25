@@ -17,7 +17,7 @@ data "terraform_remote_state" "infrastructure" {
   config = {
     resource_group_name  = "cpp-terraform-rg"
     storage_account_name = "terraformstoragecpp"
-    container_name       = "cppterraforminfr"
+    container_name       = "cppterraform"
     key                  = "4wty/jZXTOFCXXlVw+wbVsYSs+lBIVjv8bquWKSN4acxTkVK8lA9cQLYiA7WVG1AYzeRzFqMuTRZMTbaISgqGA=="
   }
 }
