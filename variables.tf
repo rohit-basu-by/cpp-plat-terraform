@@ -12,3 +12,13 @@ variable "rg_infr_name" {
   description = "infra resource group name."
   type        = string
 }
+
+variable "subscription_id" {
+  description = "Azure subscription Id."
+  type        = string
+}
+
+variable "tenant_id" {
+  description = "Azure tenant Id."
+  type        = string
+}
