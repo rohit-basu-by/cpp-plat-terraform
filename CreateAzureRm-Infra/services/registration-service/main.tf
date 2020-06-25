@@ -13,19 +13,19 @@ data "azurerm_resource_group" "Infr" {
 }
 
 module "Create-FunctionApp-Registration-App" {
-  source                           = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=master"
-  function_app_name                             = "cpp-registration-service"
-  function_app_resource_group_name = data.azurerm_resource_group.Infr.name
-  function_app_location            = data.azurerm_resource_group.Infr.location
-  app_service_plan_id              = module.Create-AzFunctionAppServicePlan.asp_id
-  storage_connection_string        = module.Create-AzStorage-Infr.storage_connection_string
+  source                            = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=master"
+  function_app_name                 = "cpp-registration-service"
+  function_app_resource_group_name  = data.azurerm_resource_group.Infr.name
+  function_app_location             = data.azurerm_resource_group.Infr.location
+  aspId                             = module.Create-AzFunctionAppServicePlan.asp_id
+  storage_primary_connection_string = module.Create-AzStorage-Infr.storage_connection_string
 
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
     WEBSITE_NODE_DEFAULT_VERSION = "~10"
     FUNCTION_APP_EDIT_MODE       = "readonly"
-    COSMOS_DB_ENDPOINT           = module.Create-AzCosmos-Infr.cosmosdb_endpoint
-    COSMOS_DB_MASTERKEY          = module.Create-AzCosmos-Infr.cosmosdb_primary_master_key
+    COSMOS_DB_ENDPOINT           = module.Create-AzCosmos-Infr.cosmos_connection
+    COSMOS_DB_MASTERKEY          = module.Create-AzCosmos-Infr.cosmos_key
   }
 }
