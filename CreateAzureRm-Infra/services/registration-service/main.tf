@@ -37,5 +37,4 @@ module "Create-FunctionApp-Registration-App" { //module A
     COSMOS_DB_ENDPOINT           = data.terraform_remote_state.infrastructure.outputs.cosmos_connection
     COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
   }
-  parallel_exec = "${var.parallel_exec}"
 }
