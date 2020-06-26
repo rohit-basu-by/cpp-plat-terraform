@@ -13,7 +13,7 @@ variable "rg_infr_name" {
   type        = string
 }
 
-variable "parallel_exec" {
-  description = "dummy variable"
-  type = string
+variable "sample" {
+  description = "sample word"
+  type        = string
 }

@@ -10,7 +10,6 @@ provider "azurerm" {
 }
 data "azurerm_resource_group" "Infr" {
   name = var.rg_infr_name
-  parallel_exec = var.parallel_exec
 }
 
 data "terraform_remote_state" "infrastructure" {
