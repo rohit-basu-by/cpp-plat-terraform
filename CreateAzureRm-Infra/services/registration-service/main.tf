@@ -10,6 +10,7 @@ provider "azurerm" {
 }
 data "azurerm_resource_group" "Infr" {
   name = var.rg_infr_name
+  //parallel_execution = var.parallel_execution
 }
 
 data "terraform_remote_state" "infrastructure" {
@@ -37,4 +38,6 @@ module "Create-FunctionApp-Registration-App" { //module A
     COSMOS_DB_ENDPOINT           = data.terraform_remote_state.infrastructure.outputs.cosmos_connection
     COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
   }
+
+  parallel_execution = var.parallel_execution
 }

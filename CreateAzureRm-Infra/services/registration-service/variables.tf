@@ -14,3 +14,8 @@ variable "rg_infr_name" {
   description = "infra resource group name."
   type        = string
 }
+
+variable "parallel_execution" {
+  description = "parallel exec."
+  type        = string
+}

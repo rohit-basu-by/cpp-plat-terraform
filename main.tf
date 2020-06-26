@@ -19,5 +19,5 @@ module "Create-Registration-Service" {
   source       = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/registration-service?ref=feature/terraform-final"
   //source       = "./CreateAzureRm-Infra/services/registration-service"
   rg_infr_name = var.rg_infr_name
-  parallel_exec = module.Create-Infrastructure.cosmos_key
+  parallel_execution = module.Create-Infrastructure.cosmos_key
 }
