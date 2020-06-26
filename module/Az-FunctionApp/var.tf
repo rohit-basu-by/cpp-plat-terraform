@@ -30,7 +30,7 @@ variable "app_settings" {
 }
 
 
-variable "parallel" {
+variable "parallel_exec" {
   description = "dummy variable"
   type = string
 }
