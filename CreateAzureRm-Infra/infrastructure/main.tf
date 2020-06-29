@@ -25,6 +25,7 @@ resource "azurerm_cosmosdb_mongo_database" "cpp" {
   name                = "cpp-database"
   resource_group_name = data.azurerm_resource_group.Infr.name
   account_name        = "mobility-nosql-mongo"
+  depends_on = [module.Create-AzCosmos-Infr.cosmos_connection]
 }
 resource "azurerm_cosmosdb_mongo_collection" "Customers" {
   name                = "Customers"
