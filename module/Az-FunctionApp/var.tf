@@ -29,7 +29,7 @@ variable "app_settings" {
   description = "Application settings to insert on creating the function app. Following updates will be ignored, and has to be set manually. Updates done on application deploy or in portal will not affect terraform state file."
 }
 
-variable "parallel_execution" {
-  description = "dummy"
-  type        = string
-}
+# variable "parallel_execution" {
+#   description = "dummy"
+#   type        = string
+# }
