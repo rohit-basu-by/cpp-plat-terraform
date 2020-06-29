@@ -5,7 +5,6 @@ terraform {
      container_name       = "cppterraform"
      key                  = "4wty/jZXTOFCXXlVw+wbVsYSs+lBIVjv8bquWKSN4acxTkVK8lA9cQLYiA7WVG1AYzeRzFqMuTRZMTbaISgqGA=="
    }
-  }
   required_version = ">= 0.12.6"
 }
 
