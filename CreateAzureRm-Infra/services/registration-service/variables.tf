@@ -14,10 +14,10 @@ variable "rg_infr_name" {
   type        = string
 }
 
-# variable "parallel_execution" {
-#   description = "parallel exec."
-#   type        = string
-# }
+ variable "parallel_execution" {
+   description = "parallel exec."
+   type        = string
+ }
 
 variable "aspId" {
   description = "Function App location."
@@ -27,4 +27,10 @@ variable "aspId" {
 variable "storage_primary_connection_string" {
   description = "Function App Storage Connection String"
   type        = string
+}
+
+variable "app_settings" {
+  default     = {}
+  type        = "map"
+  description = "Application settings to insert on creating the function app. Following updates will be ignored, and has to be set manually. Updates done on application deploy or in portal will not affect terraform state file."
 }

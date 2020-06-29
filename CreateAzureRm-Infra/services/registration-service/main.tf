@@ -32,14 +32,14 @@ module "Create-FunctionApp-Registration-App" {
   #storage_primary_connection_string = data.terraform_remote_state.infrastructure.outputs.storage_connection_string // refer module C outisde of A
   aspId                             = var.aspId
   storage_primary_connection_string = var.storage_primary_connection_string
-  app_settings = {
-    https_only                   = true
-    FUNCTIONS_WORKER_RUNTIME     = "node"
-    WEBSITE_NODE_DEFAULT_VERSION = "~10"
-    FUNCTION_APP_EDIT_MODE       = "readonly"
-    COSMOS_DB_ENDPOINT           = data.terraform_remote_state.infrastructure.outputs.cosmos_connection
-    COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
-  }
-
-  #parallel_execution = var.parallel_execution
+  # app_settings = {
+  #   https_only                   = true
+  #   FUNCTIONS_WORKER_RUNTIME     = "node"
+  #   WEBSITE_NODE_DEFAULT_VERSION = "~10"
+  #   FUNCTION_APP_EDIT_MODE       = "readonly"
+  #   COSMOS_DB_ENDPOINT           = data.terraform_remote_state.infrastructure.outputs.cosmos_connection
+  #   COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
+  # }
+  app_settings = var.app_settings
+  parallel_execution = var.parallel_execution
 }
