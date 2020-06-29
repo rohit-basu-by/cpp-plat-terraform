@@ -12,3 +12,13 @@ variable "rg_infr_name" {
   description = "infra resource group name."
   type        = string
 }
+
+variable "aspId" {
+  description = "Function App location."
+  type        = string
+}
+
+variable "storage_primary_connection_string" {
+  description = "Function App Storage Connection String"
+  type        = string
+}
