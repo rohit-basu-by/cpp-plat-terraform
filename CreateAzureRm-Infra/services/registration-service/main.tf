@@ -23,13 +23,15 @@ data "terraform_remote_state" "infrastructure" {
   }
 }
 
-module "Create-FunctionApp-Registration-App" { //module A
-  source                            = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=feature/terraform-final"
-  function_app_name                 = "cpp-registration-service"
-  function_app_resource_group_name  = data.azurerm_resource_group.Infr.name
-  function_app_location             = data.azurerm_resource_group.Infr.location
-  aspId                             = data.terraform_remote_state.infrastructure.outputs.app_service_plan
-  storage_primary_connection_string = data.terraform_remote_state.infrastructure.outputs.storage_connection_string // refer module C outisde of A
+module "Create-FunctionApp-Registration-App" {
+  source                           = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=feature/terraform-final"
+  function_app_name                = "cpp-registration-service"
+  function_app_resource_group_name = data.azurerm_resource_group.Infr.name
+  function_app_location            = data.azurerm_resource_group.Infr.location
+  #aspId                             = data.terraform_remote_state.infrastructure.outputs.app_service_plan
+  #storage_primary_connection_string = data.terraform_remote_state.infrastructure.outputs.storage_connection_string // refer module C outisde of A
+  aspId                             = var.aspId
+  storage_primary_connection_string = var.storage_primary_connection_string
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
@@ -39,5 +41,5 @@ module "Create-FunctionApp-Registration-App" { //module A
     COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
   }
 
-  parallel_execution = var.parallel_execution
+  #parallel_execution = var.parallel_execution
 }
