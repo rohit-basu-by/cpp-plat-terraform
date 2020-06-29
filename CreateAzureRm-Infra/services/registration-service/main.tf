@@ -15,6 +15,7 @@ data "azurerm_resource_group" "Infr" {
 
 data "terraform_remote_state" "infrastructure" {
   backend = "azurerm"
+  workspace = "${terraform.workspace}"
   config = {
     resource_group_name  = "cpp-terraform-rg"
     storage_account_name = "terraformstoragecpp"
