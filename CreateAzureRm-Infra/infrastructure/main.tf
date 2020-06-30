@@ -15,7 +15,7 @@ data "azurerm_resource_group" "Infr" {
 }
 
 module "Create-AzCosmos-Infr" {
-  source                     = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=master"
+  source                     = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=feature/terraform-final"
   cosmos_resource_group_name = data.azurerm_resource_group.Infr.name
 
   cosmos_location = data.azurerm_resource_group.Infr.location
@@ -25,6 +25,7 @@ resource "azurerm_cosmosdb_mongo_database" "cpp" {
   name                = "cpp-database"
   resource_group_name = data.azurerm_resource_group.Infr.name
   account_name        = "mobility-nosql-mongo"
+  depends_on          = [module.Create-AzCosmos-Infr.cosmos_connection]
 }
 resource "azurerm_cosmosdb_mongo_collection" "Customers" {
   name                = "Customers"
@@ -55,13 +56,13 @@ resource "azurerm_cosmosdb_mongo_collection" "Environments" {
 }
 
 module "Create-AzStorage-Infr" {
-  source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=master"
+  source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=feature/terraform-final"
   storage_resource_group_name = data.azurerm_resource_group.Infr.name
   storage_location            = data.azurerm_resource_group.Infr.location
 }
 
 module "Create-AzFunctionAppServicePlan" {
-  source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=master"
+  source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=feature/terraform-final"
   app_service_plan_resource_group_name = data.azurerm_resource_group.Infr.name
   app_service_plan_location            = data.azurerm_resource_group.Infr.location
   app_service_plan_kind                = "FunctionApp"

@@ -1,22 +1,11 @@
 terraform {
-  backend "azurerm" {
-    resource_group_name  = "cpp-terraform-rg"
-    storage_account_name = "terraformstoragecpp"
-    container_name       = "cppterraforminfr"
-    key                  = "4wty/jZXTOFCXXlVw+wbVsYSs+lBIVjv8bquWKSN4acxTkVK8lA9cQLYiA7WVG1AYzeRzFqMuTRZMTbaISgqGA=="
-  }
+  # backend "azurerm" {
+  #       resource_group_name  = "cpp-terraform-rg"
+  #       storage_account_name = "terraformstoragecpp"
+  #       container_name       = "cppterraform"
+  #       key                  = "4wty/jZXTOFCXXlVw+wbVsYSs+lBIVjv8bquWKSN4acxTkVK8lA9cQLYiA7WVG1AYzeRzFqMuTRZMTbaISgqGA=="
+  # }
   required_version = ">= 0.12.6"
-}
-
-
-variable "subscription_id" {
-  description = "Azure subscription Id."
-  type        = string
-}
-
-variable "tenant_id" {
-  description = "Azure tenant Id."
-  type        = string
 }
 
 variable "rg_infr_name" {
