@@ -41,5 +41,4 @@ module "Create-FunctionApp-Registration-App" {
   #   COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
   # }
   app_settings       = var.app_settings
-  parallel_execution = var.parallel_execution
 }
