@@ -55,20 +55,37 @@ resource "azurerm_cosmosdb_mongo_collection" "Environments" {
   shard_key           = "ENV_KEY"
 }
 
+
 module "Create-AzStorage-Infr" {
   source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=master"
   storage_resource_group_name = data.azurerm_resource_group.Infr.name
   storage_location            = data.azurerm_resource_group.Infr.location
+  storage_name                = "functionsappmobilitysa"
 }
 
-module "Create-AzFunctionAppServicePlan" {
+module "Create-AzFunctionAppServicePlan-Registration" {
   source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=master"
   app_service_plan_resource_group_name = data.azurerm_resource_group.Infr.name
   app_service_plan_location            = data.azurerm_resource_group.Infr.location
   app_service_plan_kind                = "FunctionApp"
-  app_service_plan_name                = "mobility-asp"
+  app_service_plan_name                = "cpp-registration-asp"
 
   app_service_plan_sku_tier = "Dynamic"
   app_service_plan_sku_size = "Y1"
 
 }
+
+module "Create-CPP-ServiceBus" {
+  source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-ServiceBus?ref=master"
+  sb_namespace_name = "cpp-core-sb"
+  namespace_sku = "Standard"
+  sb_location = data.azurerm_resource_group.Infr.location
+  sb_resource_group_name = data.azurerm_resource_group.Infr.name
+  
+  tags = {
+    source = "terraform"
+  }
+
+  queues = ["lct","transport","wfmr","debugqueue"]
+}
+

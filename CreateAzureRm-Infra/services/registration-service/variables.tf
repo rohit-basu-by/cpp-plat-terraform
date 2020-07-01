@@ -14,10 +14,10 @@ variable "rg_infr_name" {
   type        = string
 }
 
- variable "parallel_execution" {
-   description = "parallel exec."
-   type        = string
- }
+variable "parallel_execution" {
+  description = "parallel exec."
+  type        = string
+}
 
 variable "aspId" {
   description = "Function App location."

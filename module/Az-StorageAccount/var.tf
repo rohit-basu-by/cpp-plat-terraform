@@ -7,3 +7,8 @@ variable "storage_location" {
   description = "Storage location."
   type        = string
 }
+
+variable "storage_name" {
+  description = "storage name"
+  type        = string
+}

@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "storage" {
-  name                     = "functionsappmobilitysa"
+  name                     = var.storage_name
   resource_group_name      = "${var.storage_resource_group_name}"
   location                 = "${var.storage_location}"
   account_tier             = "Standard"
