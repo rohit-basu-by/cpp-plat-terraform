@@ -4,7 +4,6 @@ resource "azurerm_servicebus_namespace" "namespace" {
   location            = var.sb_location
   sku                 = var.namespace_sku
   capacity            = var.namespace_capacity
-  zone_redundant      = var.namespace_sku == "premium" ? var.redundency : false
   tags                = var.tags
 }
 
