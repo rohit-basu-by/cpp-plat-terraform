@@ -10,7 +10,7 @@ output "cosmos_key" {
 
 output "app_service_plan" {
   description = "Generic App Service Plan"
-  value       = module.Create-AzFunctionAppServicePlan.asp_id
+  value       = module.Create-AzFunctionAppServicePlan-Registration.asp_id
 }
 
 output "storage_connection_string" {
