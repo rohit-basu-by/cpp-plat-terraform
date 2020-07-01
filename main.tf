@@ -11,14 +11,14 @@ provider "azurerm" {
 }
 
 module "Create-Infrastructure" {
-  source       = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/infrastructure?ref=master"
+  source       = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/infrastructure?ref=origin/master"
   rg_infr_name = var.rg_infr_name
 }
 
 
 
 module "Create-Registration-Service" {
-  source = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/registration-service?ref=master"
+  source = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/registration-service?ref=origin/master"
   //source       = "./CreateAzureRm-Infra/services/registration-service"
   rg_infr_name                      = var.rg_infr_name
   aspId                             = module.Create-Infrastructure.app_service_plan

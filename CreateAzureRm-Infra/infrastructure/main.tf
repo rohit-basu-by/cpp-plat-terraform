@@ -15,7 +15,7 @@ data "azurerm_resource_group" "Infr" {
 }
 
 module "Create-AzCosmos-Infr" {
-  source                     = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=master"
+  source                     = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-Cosmos?ref=origin/master"
   cosmos_resource_group_name = data.azurerm_resource_group.Infr.name
 
   cosmos_location = data.azurerm_resource_group.Infr.location
@@ -57,14 +57,14 @@ resource "azurerm_cosmosdb_mongo_collection" "Environments" {
 
 
 module "Create-AzStorage-Infr" {
-  source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=master"
+  source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=origin/master"
   storage_resource_group_name = data.azurerm_resource_group.Infr.name
   storage_location            = data.azurerm_resource_group.Infr.location
   storage_name                = "functionsappmobilitysa"
 }
 
 module "Create-AzFunctionAppServicePlan-Registration" {
-  source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=master"
+  source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=origin/master"
   app_service_plan_resource_group_name = data.azurerm_resource_group.Infr.name
   app_service_plan_location            = data.azurerm_resource_group.Infr.location
   app_service_plan_kind                = "FunctionApp"
@@ -76,7 +76,7 @@ module "Create-AzFunctionAppServicePlan-Registration" {
 }
 
 module "Create-CPP-ServiceBus" {
-  source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-ServiceBus?ref=master"
+  source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-ServiceBus?ref=origin/master"
   sb_namespace_name      = "cpp-core-sb"
   namespace_sku          = "Standard"
   sb_location            = data.azurerm_resource_group.Infr.location

@@ -24,7 +24,7 @@ data "terraform_remote_state" "infrastructure" {
 }
 
 module "Create-FunctionApp-Registration-App" {
-  source                           = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=master"
+  source                           = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=origin/master"
   function_app_name                = "cpp-registration-service"
   function_app_resource_group_name = data.azurerm_resource_group.Infr.name
   function_app_location            = data.azurerm_resource_group.Infr.location
