@@ -28,3 +28,14 @@ resource "azurerm_notification_hub" "main" {
 
   depends_on = [azurerm_notification_hub_namespace.main]
 }
+
+resource "azurerm_notification_hub_authorization_rule" "main" {
+  count               = length(var.notificationHubs)
+  name                  = element(var.notificationHubs, count.index).nh_name
+  notification_hub_name = element(var.notificationHubs, count.index).nh_name
+  namespace_name        = azurerm_notification_hub_namespace.example.name
+  resource_group_name   = azurerm_notification_hub_namespace.main.name
+  manage                = true
+  send                  = true
+  listen                = true
+}
