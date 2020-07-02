@@ -97,4 +97,3 @@ module "Create-Push-Notification-WFMR-Service" {
     COSMOS_DB_MASTERKEY          = module.Create-Infrastructure.cosmos_key
   }
 }
-}
