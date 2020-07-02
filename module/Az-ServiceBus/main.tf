@@ -1,4 +1,4 @@
-resource "azurerm_servicebus_namespace" "namespace" {
+resource "azurerm_servicebus_namespace" "cpp-namespace" {
   resource_group_name = var.sb_resource_group_name
   name                = var.sb_namespace_name
   location            = var.sb_location
