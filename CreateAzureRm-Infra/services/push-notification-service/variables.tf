@@ -24,10 +24,10 @@ variable "aspId" {
   type        = string
 }
 
-variable "storage_primary_connection_string" {
-  description = "Function App Storage Connection String"
-  type        = string
-}
+# variable "storage_primary_connection_string" {
+#   description = "Function App Storage Connection String"
+#   type        = string
+# }
 
 variable "app_settings" {
   default     = {}
