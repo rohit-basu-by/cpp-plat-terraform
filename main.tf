@@ -55,7 +55,7 @@ module "Create-Push-Notification-LCT-Service" {
   //source       = "./CreateAzureRm-Infra/services/registration-service"
   rg_infr_name = var.rg_infr_name
   aspId        = module.Create-Infrastructure.push_notification_app_service_plan
-  app_name     = "cpp-lct-pn-service"
+  app_name     = "cpplctpnservice"
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
@@ -71,7 +71,7 @@ module "Create-Push-Notification-TMS-Service" {
   //source       = "./CreateAzureRm-Infra/services/registration-service"
   rg_infr_name = var.rg_infr_name
   aspId        = module.Create-Infrastructure.push_notification_app_service_plan
-  app_name     = "cpp-tms-pn-service"
+  app_name     = "cpptmspnservice"
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
@@ -87,7 +87,7 @@ module "Create-Push-Notification-WFMR-Service" {
   //source       = "./CreateAzureRm-Infra/services/registration-service"
   rg_infr_name = var.rg_infr_name
   aspId        = module.Create-Infrastructure.push_notification_app_service_plan
-  app_name     = "cpp-wfmr-pn-service"
+  app_name     = "cppwfmrpnservice"
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
