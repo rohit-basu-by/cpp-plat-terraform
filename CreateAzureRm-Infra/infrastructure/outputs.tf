@@ -22,3 +22,8 @@ output "queues" {
   value       = module.Create-CPP-ServiceBus.queues
   description = "Map of queues."
 }
+
+output "notificationHubs" {
+  value       = module.Create-CPP_NotificationHubs.notificationHubs
+  description = "Map of notification hubs."
+}
