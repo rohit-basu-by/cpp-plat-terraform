@@ -40,5 +40,5 @@ module "Create-FunctionApp-Registration-App" {
   #   COSMOS_DB_ENDPOINT           = data.terraform_remote_state.infrastructure.outputs.cosmos_connection
   #   COSMOS_DB_MASTERKEY          = data.terraform_remote_state.infrastructure.outputs.cosmos_key
   # }
-  app_settings       = var.app_settings
+  app_settings = var.app_settings
 }

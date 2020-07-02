@@ -19,6 +19,6 @@ output "storage_connection_string" {
 }
 
 output "queues" {
-  value = module.Create-Infrastructure.queues
+  value       = module.Create-Infrastructure.queues
   description = "Map of queues."
 }

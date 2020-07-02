@@ -19,6 +19,6 @@ output "storage_connection_string" {
 }
 
 output "queues" {
-  value = module.Create-CPP-ServiceBus.queues
+  value       = module.Create-CPP-ServiceBus.queues
   description = "Map of queues."
 }

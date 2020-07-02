@@ -89,3 +89,40 @@ module "Create-CPP-ServiceBus" {
   queues = ["lct", "transport", "wfmr", "debugqueue"]
 }
 
+module "Create-CPP_NotificationHubs" {
+  source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-NotificationHub?ref=origin/master"
+  nh_resource_group_name = data.azurerm_resource_group.Infr.name
+  nh_location            = data.azurerm_resource_group.Infr.location
+  nh_namespace_name      = "cpp-core-nh-namespace"
+  notificationHubs = [
+    {
+      nh_name        = "by-lct"
+      apns_app_mode  = "Production"
+      apns_bundle_id = "com.jda.mobility.lct"
+      apns_key_id    = "ZR2VH6AS32"
+      apns_team_id   = "472WHE9N6Q"
+      apns_token     = "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgIrRyErKeOtk8LDJ8  TVh2HOOiwiZGXIQcgWekWTEU9g6gCgYIKoZIzj0DAQehRANCAATpRHN38fBJENsB  QStkShXNMV8boQl/WrULs+2W1LH/cS8mnw0oWrJwLDJtihjE6AaeJbM/OztVbO5J  UjSFCNDr"
+      gcm_api_key    = "AAAA198d8O0:APA91bGcwi6150YmmMekgh1heZHTDYcYO7unu8fQPArrdR2Ip3VyRPKZ0WeupkM26wuSm6t2RKxZzCm83AuMgRJ4FUBW4gUYVsN1eNjttD3gaitScj1JLEkJW3rpy23_3l99dM7_0bhf"
+    },
+    {
+      nh_name        = "by-transport"
+      apns_app_mode  = "Production"
+      apns_bundle_id = "com.jda.mobility.trans"
+      apns_key_id    = "ZR2VH6AS32"
+      apns_team_id   = "472WHE9N6Q"
+      apns_token     = "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgIrRyErKeOtk8LDJ8 TVh2HOOiwiZGXIQcgWekWTEU9g6gCgYIKoZIzj0DAQehRANCAATpRHN38fBJENsB QStkShXNMV8boQl/WrULs+2W1LH/cS8mnw0oWrJwLDJtihjE6AaeJbM/OztVbO5J UjSFCNDr"
+      gcm_api_key    = "AAAArxW8mmM:APA91bHP3DBkROBMzXL3In7CscPxjOFDRNf9-q21jtZiCqRylDQRGBMAWETa4LNeezfveh1d9eZthcdL_aJroezKYpdke8_NgPBGQI00_edh2eXGhx934BTFcQwdX4tN56KEgq81vREm"
+    },
+    {
+      nh_name        = "by-wfmr"
+      apns_app_mode  = "Production"
+      apns_bundle_id = "com.jda.mobility.wfmr"
+      apns_key_id    = "ZR2VH6AS32"
+      apns_team_id   = "472WHE9N6Q"
+      apns_token     = "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgIrRyErKeOtk8LDJ8  TVh2HOOiwiZGXIQcgWekWTEU9g6gCgYIKoZIzj0DAQehRANCAATpRHN38fBJENsB  QStkShXNMV8boQl/WrULs+2W1LH/cS8mnw0oWrJwLDJtihjE6AaeJbM/OztVbO5J  UjSFCNDr"
+      gcm_api_key    = "AAAAZFLaoQ4:APA91bHVlTVf70Y7AowRwazgRkLvaByijTu3zdFisQyUpBoK6IpA-LMCQ9zQ3wrKuSWlf9325-7HCVDi6_rhRMUJPZNtI-36wZkXrtSMxTUhkc6pxuZQA4bWFs-YKb2vDRaV__wEGVRm"
+    }
+  ]
+
+}
+

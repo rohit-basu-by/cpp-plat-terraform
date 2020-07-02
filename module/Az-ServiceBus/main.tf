@@ -13,7 +13,7 @@ resource "azurerm_servicebus_queue" "queue" {
   resource_group_name = var.sb_resource_group_name
   namespace_name      = azurerm_servicebus_namespace.cpp-namespace.name
   enable_partitioning = true
-  depends_on = [azurerm_servicebus_namespace.cpp-namespace]
+  depends_on          = [azurerm_servicebus_namespace.cpp-namespace]
 }
 
 resource "azurerm_servicebus_queue_authorization_rule" "auth-rule" {
@@ -33,7 +33,7 @@ resource "azurerm_servicebus_topic" "topic" {
   name                = element(var.topics, count.index)
   resource_group_name = var.sb_resource_group_name
   namespace_name      = azurerm_servicebus_namespace.cpp-namespace.name
-  depends_on = [azurerm_servicebus_namespace.cpp-namespace]
+  depends_on          = [azurerm_servicebus_namespace.cpp-namespace]
 }
 
 resource "azurerm_servicebus_subscription" "subscription" {
@@ -43,5 +43,5 @@ resource "azurerm_servicebus_subscription" "subscription" {
   namespace_name      = azurerm_servicebus_namespace.cpp-namespace.name
   topic_name          = element(azurerm_servicebus_topic.topic.*.name, count.index)
   max_delivery_count  = var.servicebus_subscription_max_delivery_count
-  depends_on = [azurerm_servicebus_namespace.cpp-namespace]
+  depends_on          = [azurerm_servicebus_namespace.cpp-namespace]
 }
