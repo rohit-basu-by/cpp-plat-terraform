@@ -24,6 +24,6 @@ output "queues" {
 }
 
 output "notificationHubs" {
-  value       = module.Create-CPP_NotificationHubs.notificationHubs
+  value       = module.Create-Infrastructure.notificationHubs
   description = "Map of notification hubs."
 }
