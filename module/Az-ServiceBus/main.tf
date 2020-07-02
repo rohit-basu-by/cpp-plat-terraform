@@ -16,6 +16,18 @@ resource "azurerm_servicebus_queue" "queue" {
   depends_on = [azurerm_servicebus_namespace.cpp-namespace]
 }
 
+resource "azurerm_servicebus_queue_authorization_rule" "auth-rule" {
+  count               = length(var.queues)
+  name                = element(var.queues, count.index)
+  namespace_name      = azurerm_servicebus_namespace.cpp-namespace.name
+  queue_name          = element(var.queues, count.index)
+  resource_group_name = var.sb_resource_group_name
+
+  listen = true
+  send   = true
+  manage = false
+}
+
 resource "azurerm_servicebus_topic" "topic" {
   count               = var.namespace_sku != "basic" ? length(var.topics) : 0
   name                = element(var.topics, count.index)
