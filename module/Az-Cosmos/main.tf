@@ -24,6 +24,10 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   }
 
   capabilities {
-    name = "MongoDBv3.6"
+    name = "EnableAggregationPipeline"
+  }
+
+   capabilities {
+    name = "MongoDBv3.4"
   }
 }
