@@ -25,4 +25,6 @@ resource "azurerm_notification_hub" "main" {
   gcm_credential {
     api_key = element(var.notificationHubs, count.index).gcm_api_key
   }
+
+  depends_on = [azurerm_notification_hub_namespace.main]
 }
