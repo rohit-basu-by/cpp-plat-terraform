@@ -2,10 +2,6 @@ output "servicebus_namespace" {
   value = azurerm_servicebus_namespace.cpp-namespace
 }
 
-output "queues" {
-  value = azurerm_servicebus_queue.queue
-}
-
 output "topics" {
   value = azurerm_servicebus_topic.topic
 }
