@@ -26,6 +26,6 @@ module "Create-FunctionApp-Push-Notification-App" {
   function_app_resource_group_name  = data.azurerm_resource_group.Infr.name
   function_app_location             = data.azurerm_resource_group.Infr.location
   aspId                             = var.aspId
-  storage_primary_connection_string = module.Create-AzStorage-Push-Notification-Infr.storage_primary_connection_string
+  storage_primary_connection_string = module.Create-AzStorage-Push-Notification-Infr.storage_connection_string
   app_settings                      = var.app_settings
 }
