@@ -18,6 +18,11 @@ output "storage_connection_string" {
   value       = module.Create-AzStorage-Infr.storage_connection_string
 }
 
+output "notification_ops_storage_connection_string" {
+  description = "Generic Storage Connection String"
+  value       = module.Create-AzStorage-Notificaion-Ops-Infr.storage_connection_string
+}
+
 output "queues" {
   value       = module.Create-CPP-ServiceBus.queues
   description = "Map of queues."

@@ -63,6 +63,13 @@ module "Create-AzStorage-Infr" {
   storage_name                = "functionsappmobilitysa"
 }
 
+module "Create-AzStorage-Notificaion-Ops-Infr" {
+  source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=origin/master"
+  storage_resource_group_name = data.azurerm_resource_group.Infr.name
+  storage_location            = data.azurerm_resource_group.Infr.location
+  storage_name                = "notificationops"
+}
+
 module "Create-AzFunctionAppServicePlan-Registration" {
   source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=origin/master"
   app_service_plan_resource_group_name = data.azurerm_resource_group.Infr.name
