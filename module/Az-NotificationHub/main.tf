@@ -30,11 +30,11 @@ resource "azurerm_notification_hub" "main" {
 }
 
 resource "azurerm_notification_hub_authorization_rule" "main" {
-  count               = length(var.notificationHubs)
+  count                 = length(var.notificationHubs)
   name                  = element(var.notificationHubs, count.index).nh_name
   notification_hub_name = element(var.notificationHubs, count.index).nh_name
   namespace_name        = azurerm_notification_hub_namespace.main.name
-  resource_group_name   = azurerm_notification_hub_namespace.main.name
+  resource_group_name   = var.nh_resource_group_name
   manage                = true
   send                  = true
   listen                = true
