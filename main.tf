@@ -53,9 +53,9 @@ module "Create-Notification-Ops-Service" {
 module "Create-Push-Notification-LCT-Service" {
   source = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/push-notification-service?ref=origin/master"
   //source       = "./CreateAzureRm-Infra/services/registration-service"
-  rg_infr_name                      = var.rg_infr_name
-  aspId                             = module.Create-Infrastructure.push_notification_app_service_plan
-  app_name = "cpp-lct-pn-service"
+  rg_infr_name = var.rg_infr_name
+  aspId        = module.Create-Infrastructure.push_notification_app_service_plan
+  app_name     = "cpp-lct-pn-service"
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
@@ -69,9 +69,9 @@ module "Create-Push-Notification-LCT-Service" {
 module "Create-Push-Notification-TMS-Service" {
   source = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/push-notification-service?ref=origin/master"
   //source       = "./CreateAzureRm-Infra/services/registration-service"
-  rg_infr_name                      = var.rg_infr_name
-  aspId                             = module.Create-Infrastructure.push_notification_app_service_plan
-  app_name = "cpp-tms-pn-service"
+  rg_infr_name = var.rg_infr_name
+  aspId        = module.Create-Infrastructure.push_notification_app_service_plan
+  app_name     = "cpp-tms-pn-service"
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"
@@ -85,9 +85,9 @@ module "Create-Push-Notification-TMS-Service" {
 module "Create-Push-Notification-WFMR-Service" {
   source = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//CreateAzureRm-Infra/services/push-notification-service?ref=origin/master"
   //source       = "./CreateAzureRm-Infra/services/registration-service"
-  rg_infr_name                      = var.rg_infr_name
-  aspId                             = module.Create-Infrastructure.push_notification_app_service_plan
-  app_name = "cpp-wfmr-pn-service"
+  rg_infr_name = var.rg_infr_name
+  aspId        = module.Create-Infrastructure.push_notification_app_service_plan
+  app_name     = "cpp-wfmr-pn-service"
   app_settings = {
     https_only                   = true
     FUNCTIONS_WORKER_RUNTIME     = "node"

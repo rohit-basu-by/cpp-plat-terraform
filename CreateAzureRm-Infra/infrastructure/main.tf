@@ -35,7 +35,7 @@ resource "azurerm_cosmosdb_mongo_collection" "Customers" {
   default_ttl_seconds = "777"
   throughput          = 400
   shard_key           = "customerId"
-  depends_on = [azurerm_cosmosdb_mongo_database.cpp]
+  depends_on          = [azurerm_cosmosdb_mongo_database.cpp]
 }
 resource "azurerm_cosmosdb_mongo_collection" "Products" {
   name                = "Products"
@@ -45,7 +45,7 @@ resource "azurerm_cosmosdb_mongo_collection" "Products" {
   default_ttl_seconds = "777"
   throughput          = 400
   shard_key           = "productId"
-  depends_on = [azurerm_cosmosdb_mongo_database.cpp]
+  depends_on          = [azurerm_cosmosdb_mongo_database.cpp]
 }
 resource "azurerm_cosmosdb_mongo_collection" "Environments" {
   name                = "Environments"
@@ -55,7 +55,7 @@ resource "azurerm_cosmosdb_mongo_collection" "Environments" {
   default_ttl_seconds = "777"
   throughput          = 400
   shard_key           = "ENV_KEY"
-  depends_on = [azurerm_cosmosdb_mongo_database.cpp]
+  depends_on          = [azurerm_cosmosdb_mongo_database.cpp]
 }
 
 resource "azurerm_cosmosdb_mongo_collection" "MessageAudit" {
@@ -66,7 +66,7 @@ resource "azurerm_cosmosdb_mongo_collection" "MessageAudit" {
   default_ttl_seconds = "777"
   throughput          = 400
   shard_key           = "ENV_KEY"
-  depends_on = [azurerm_cosmosdb_mongo_database.cpp]
+  depends_on          = [azurerm_cosmosdb_mongo_database.cpp]
 }
 
 resource "azurerm_cosmosdb_mongo_collection" "AppUsers" {
@@ -77,7 +77,7 @@ resource "azurerm_cosmosdb_mongo_collection" "AppUsers" {
   default_ttl_seconds = "777"
   throughput          = 400
   shard_key           = "ENV_KEY"
-  depends_on = [azurerm_cosmosdb_mongo_database.cpp]
+  depends_on          = [azurerm_cosmosdb_mongo_database.cpp]
 }
 
 

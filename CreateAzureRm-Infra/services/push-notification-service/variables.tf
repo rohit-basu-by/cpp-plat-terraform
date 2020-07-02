@@ -15,8 +15,8 @@ variable "rg_infr_name" {
 }
 
 variable "app_name" {
-    description = "function app name."
-    type        = string
+  description = "function app name."
+  type        = string
 }
 
 variable "aspId" {

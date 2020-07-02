@@ -15,7 +15,7 @@ output "app_service_plan" {
 
 output "push_notification_app_service_plan" {
   description = "Push Notification App Service Plan"
-  value = module.Create-AzFunctionAppServicePlan-PushNotification.asp_id
+  value       = module.Create-AzFunctionAppServicePlan-PushNotification.asp_id
 }
 
 output "storage_connection_string" {

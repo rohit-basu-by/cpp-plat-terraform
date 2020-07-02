@@ -21,11 +21,11 @@ module "Create-AzStorage-Push-Notification-Infr" {
 }
 
 module "Create-FunctionApp-Push-Notification-App" {
-  source                           = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=origin/master"
-  function_app_name                = var.app_name
-  function_app_resource_group_name = data.azurerm_resource_group.Infr.name
-  function_app_location            = data.azurerm_resource_group.Infr.location
+  source                            = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=origin/master"
+  function_app_name                 = var.app_name
+  function_app_resource_group_name  = data.azurerm_resource_group.Infr.name
+  function_app_location             = data.azurerm_resource_group.Infr.location
   aspId                             = var.aspId
   storage_primary_connection_string = module.Create-AzStorage-Push-Notification-Infr.storage_primary_connection_string
-  app_settings = var.app_settings
+  app_settings                      = var.app_settings
 }
