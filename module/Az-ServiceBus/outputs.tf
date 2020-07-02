@@ -1,5 +1,5 @@
 output "servicebus_namespace" {
-  value = azurerm_servicebus_namespace.namespace
+  value = azurerm_servicebus_namespace.cpp-namespace
 }
 
 output "queues" {
