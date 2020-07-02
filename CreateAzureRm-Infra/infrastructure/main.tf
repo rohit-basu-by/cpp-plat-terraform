@@ -77,7 +77,7 @@ module "Create-AzFunctionAppServicePlan-Registration" {
 
 module "Create-CPP-ServiceBus" {
   source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-ServiceBus?ref=origin/master"
-  sb_namespace_name      = "cpp-core-sb"
+  sb_namespace_name      = "cpp-core-sb-namespace"
   namespace_sku          = "Standard"
   sb_location            = data.azurerm_resource_group.Infr.location
   sb_resource_group_name = data.azurerm_resource_group.Infr.name
