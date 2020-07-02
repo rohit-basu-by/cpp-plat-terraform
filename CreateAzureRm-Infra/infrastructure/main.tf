@@ -102,6 +102,17 @@ module "Create-AzFunctionAppServicePlan-Registration" {
 
 }
 
+module "Create-AzFunctionAppServicePlan-PushNotification" {
+  source                               = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-AppServicePlan?ref=origin/master"
+  app_service_plan_resource_group_name = data.azurerm_resource_group.Infr.name
+  app_service_plan_location            = data.azurerm_resource_group.Infr.location
+  app_service_plan_kind                = "FunctionApp"
+  app_service_plan_name                = "cpp-push-notifications-asp"
+
+  app_service_plan_sku_tier = "Standard"
+  app_service_plan_sku_size = "S2"
+}
+
 module "Create-CPP-ServiceBus" {
   source                 = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-ServiceBus?ref=origin/master"
   sb_namespace_name      = "cpp-core-sb-namespace"

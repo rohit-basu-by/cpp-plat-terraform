@@ -13,6 +13,11 @@ output "app_service_plan" {
   value       = module.Create-AzFunctionAppServicePlan-Registration.asp_id
 }
 
+output "push_notification_app_service_plan" {
+  description = "Push Notification App Service Plan"
+  value = module.Create-AzFunctionAppServicePlan-PushNotification.asp_id
+}
+
 output "storage_connection_string" {
   description = "Generic Storage Connection String"
   value       = module.Create-AzStorage-Infr.storage_connection_string
