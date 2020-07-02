@@ -55,6 +55,26 @@ resource "azurerm_cosmosdb_mongo_collection" "Environments" {
   shard_key           = "ENV_KEY"
 }
 
+resource "azurerm_cosmosdb_mongo_collection" "MessageAudit" {
+  name                = "MessageAudit"
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  account_name        = "mobility-nosql-mongo"
+  database_name       = "cpp-database"
+  default_ttl_seconds = "777"
+  throughput          = 400
+  shard_key           = "ENV_KEY"
+}
+
+resource "azurerm_cosmosdb_mongo_collection" "AppUsers" {
+  name                = "AppUsers"
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  account_name        = "mobility-nosql-mongo"
+  database_name       = "cpp-database"
+  default_ttl_seconds = "777"
+  throughput          = 400
+  shard_key           = "ENV_KEY"
+}
+
 
 module "Create-AzStorage-Infr" {
   source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=origin/master"

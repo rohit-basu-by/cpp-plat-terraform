@@ -48,5 +48,4 @@ module "Create-Notification-Ops-Service" {
     COSMOS_DB_ENDPOINT           = module.Create-Infrastructure.cosmos_connection
     COSMOS_DB_MASTERKEY          = module.Create-Infrastructure.cosmos_key
   }
-  parallel_execution = false
 }
