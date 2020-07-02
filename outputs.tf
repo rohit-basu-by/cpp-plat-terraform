@@ -17,3 +17,8 @@ output "storage_connection_string" {
   description = "Generic Storage Connection String"
   value       = module.Create-Infrastructure.storage_connection_string
 }
+
+output "queues" {
+  value = module.Create-Infrastructure.queues
+  description = "Map of queues."
+}
