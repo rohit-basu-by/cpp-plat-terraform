@@ -14,8 +14,8 @@ data "azurerm_resource_group" "Infr" {
   //parallel_execution = var.parallel_execution
 }
 
-resource "azurerm_application_insights" "notification_ops" {
-  name                = "Notification-Ops-AppInsights"
+resource "azurerm_application_insights" "cpp-notification_ops" {
+  name                = "CPP-Notification-Ops-AppInsights"
   location            = data.azurerm_resource_group.Infr.location
   resource_group_name = data.azurerm_resource_group.Infr.name
   application_type    = "Node.JS"
