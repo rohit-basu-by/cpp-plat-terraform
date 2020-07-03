@@ -23,7 +23,7 @@ module "Create-AzStorage-Push-Notification-Durable" {
   source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=origin/master"
   storage_resource_group_name = data.azurerm_resource_group.Infr.name
   storage_location            = data.azurerm_resource_group.Infr.location
-  storage_name                = "durable-${var.app_name}"
+  storage_name                = "durable${var.app_name}"
 }
 
 module "Create-FunctionApp-Push-Notification-App" {
