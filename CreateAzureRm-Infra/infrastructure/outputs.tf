@@ -37,3 +37,13 @@ output "notificationHubs" {
   value       = module.Create-CPP_NotificationHubs.notificationHubs
   description = "Map of notification hubs."
 }
+
+# output "instrumentation_key" {
+#   value = azurerm_application_insights.main.instrumentation_key
+#   description = "Application Insights Instrumentation Key"
+# }
+
+# output "app_id" {
+#   value = azurerm_application_insights.main.app_id
+#   description = "Application Insights App ID"
+# }

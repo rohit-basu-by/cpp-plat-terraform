@@ -27,3 +27,13 @@ output "notificationHubs" {
   value       = module.Create-Infrastructure.notificationHubs
   description = "Map of notification hubs."
 }
+
+# output "instrumentation_key" {
+#   value = module.Create-Infrastructureinstrumentation_key
+#   description = "Application Insights Instrumentation Key"
+# }
+
+# output "app_id" {
+#   value = module.Create-Infrastructure.app_id
+#   description = "Application Insights App ID"
+# }

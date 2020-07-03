@@ -26,6 +26,14 @@ module "Create-AzStorage-Push-Notification-Durable" {
   storage_name                = "durable${var.app_name}"
 }
 
+resource "azurerm_application_insights" "push_notification" {
+  name                = "Notification-Ops-AppInsights"
+  location            = data.azurerm_resource_group.Infr.location
+  resource_group_name = data.azurerm_resource_group.Infr.name
+  application_type    = "Node.JS"
+  retention_in_days   = 30
+}
+
 module "Create-FunctionApp-Push-Notification-App" {
   source                            = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=origin/master"
   function_app_name                 = var.app_name
@@ -33,5 +41,5 @@ module "Create-FunctionApp-Push-Notification-App" {
   function_app_location             = data.azurerm_resource_group.Infr.location
   aspId                             = var.aspId
   storage_primary_connection_string = module.Create-AzStorage-Push-Notification-Infr.storage_connection_string
-  app_settings                      = merge(var.app_settings, { "durablefunstorageconnstring" : module.Create-AzStorage-Push-Notification-Durable.storage_connection_string })
+  app_settings                      = merge(var.app_settings, { "durablefunstorageconnstring" : module.Create-AzStorage-Push-Notification-Durable.storage_connection_string, "APPINSIGHTS_INSTRUMENTATIONKEY" : azurerm_application_insights.push_notification.instrumentation_key, "APPLICATIONINSIGHTS_CONNECTION_STRING" : format("InstrumentationKey=%s", azurerm_application_insights.push_notification.instrumentation_key) })
 }
