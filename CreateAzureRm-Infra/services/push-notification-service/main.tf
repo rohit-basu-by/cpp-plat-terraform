@@ -19,6 +19,12 @@ module "Create-AzStorage-Push-Notification-Infr" {
   storage_location            = data.azurerm_resource_group.Infr.location
   storage_name                = var.app_name
 }
+module "Create-AzStorage-Push-Notification-Durable" {
+  source                      = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-StorageAccount?ref=origin/master"
+  storage_resource_group_name = data.azurerm_resource_group.Infr.name
+  storage_location            = data.azurerm_resource_group.Infr.location
+  storage_name                = "durable-${var.app_name}"
+}
 
 module "Create-FunctionApp-Push-Notification-App" {
   source                            = "git::https://github.com/rohit-basu-by/cpp-plat-terraform.git//module/Az-FunctionApp?ref=origin/master"
@@ -27,5 +33,5 @@ module "Create-FunctionApp-Push-Notification-App" {
   function_app_location             = data.azurerm_resource_group.Infr.location
   aspId                             = var.aspId
   storage_primary_connection_string = module.Create-AzStorage-Push-Notification-Infr.storage_connection_string
-  app_settings                      = var.app_settings
+  app_settings                      = merge(var.app_settings, { "durablefunstorageconnstring" : module.Create-AzStorage-Push-Notification-Durable.storage_connection_string })
 }
