@@ -61,8 +61,8 @@ module "Create-Push-Notification-LCT-Service" {
     FUNCTIONS_WORKER_RUNTIME     = "node"
     WEBSITE_NODE_DEFAULT_VERSION = "~10"
     FUNCTION_APP_EDIT_MODE       = "readonly"
-    COSMOS_DB_ENDPOINT           = module.Create-Infrastructure.cosmos_connection
-    COSMOS_DB_MASTERKEY          = module.Create-Infrastructure.cosmos_key
+    cosmodb_endpoint           = module.Create-Infrastructure.cosmos_connection
+    cosmodb_primaryKey          = module.Create-Infrastructure.cosmos_key
   }
 }
 
@@ -77,8 +77,8 @@ module "Create-Push-Notification-TMS-Service" {
     FUNCTIONS_WORKER_RUNTIME     = "node"
     WEBSITE_NODE_DEFAULT_VERSION = "~10"
     FUNCTION_APP_EDIT_MODE       = "readonly"
-    COSMOS_DB_ENDPOINT           = module.Create-Infrastructure.cosmos_connection
-    COSMOS_DB_MASTERKEY          = module.Create-Infrastructure.cosmos_key
+    cosmodb_endpoint           = module.Create-Infrastructure.cosmos_connection
+    cosmodb_primaryKey          = module.Create-Infrastructure.cosmos_key
   }
 }
 
@@ -93,7 +93,7 @@ module "Create-Push-Notification-WFMR-Service" {
     FUNCTIONS_WORKER_RUNTIME     = "node"
     WEBSITE_NODE_DEFAULT_VERSION = "~10"
     FUNCTION_APP_EDIT_MODE       = "readonly"
-    COSMOS_DB_ENDPOINT           = module.Create-Infrastructure.cosmos_connection
-    COSMOS_DB_MASTERKEY          = module.Create-Infrastructure.cosmos_key
+    cosmodb_endpoint           = module.Create-Infrastructure.cosmos_connection
+    cosmodb_primaryKey          = module.Create-Infrastructure.cosmos_key
   }
 }
