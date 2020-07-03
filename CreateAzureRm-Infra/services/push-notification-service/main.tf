@@ -27,7 +27,7 @@ module "Create-AzStorage-Push-Notification-Durable" {
 }
 
 resource "azurerm_application_insights" "push_notification" {
-  name                = "Notification-Ops-AppInsights"
+  name                = "${var.app_name}-AppInsights"
   location            = data.azurerm_resource_group.Infr.location
   resource_group_name = data.azurerm_resource_group.Infr.name
   application_type    = "Node.JS"
