@@ -57,12 +57,18 @@ module "Create-Push-Notification-LCT-Service" {
   aspId        = module.Create-Infrastructure.push_notification_app_service_plan
   app_name     = "cpplctpnservice"
   app_settings = {
-    https_only                   = true
-    FUNCTIONS_WORKER_RUNTIME     = "node"
-    WEBSITE_NODE_DEFAULT_VERSION = "~10"
-    FUNCTION_APP_EDIT_MODE       = "readonly"
-    cosmodb_endpoint           = module.Create-Infrastructure.cosmos_connection
-    cosmodb_primaryKey          = module.Create-Infrastructure.cosmos_key
+    https_only                      = true
+    FUNCTIONS_WORKER_RUNTIME        = "node"
+    WEBSITE_NODE_DEFAULT_VERSION    = "~10"
+    FUNCTION_APP_EDIT_MODE          = "readonly"
+    hub_connection_string           = module.Create-Infrastructure.notificationHubs.by-lct.authorization_rules.by-lct.hub_connection_string
+    hubAccessKeyName                = "by-lct"
+    hubAccessKeySig                 = module.Create-Infrastructure.notificationHubs.by-lct.authorization_rules.by-lct.primary_access_key
+    hubName                         = "by-lct"
+    ServiceBusQueueConnectionString = module.Create-Infrastructure.queues.lct.authorization_rules.lct.primary_connection_string
+    servicebusqueuename             = "lct"
+    cosmodb_endpoint                = module.Create-Infrastructure.cosmos_connection
+    cosmodb_primaryKey              = module.Create-Infrastructure.cosmos_key
   }
 }
 
@@ -73,12 +79,18 @@ module "Create-Push-Notification-TMS-Service" {
   aspId        = module.Create-Infrastructure.push_notification_app_service_plan
   app_name     = "cpptmspnservice"
   app_settings = {
-    https_only                   = true
-    FUNCTIONS_WORKER_RUNTIME     = "node"
-    WEBSITE_NODE_DEFAULT_VERSION = "~10"
-    FUNCTION_APP_EDIT_MODE       = "readonly"
-    cosmodb_endpoint           = module.Create-Infrastructure.cosmos_connection
-    cosmodb_primaryKey          = module.Create-Infrastructure.cosmos_key
+    https_only                      = true
+    FUNCTIONS_WORKER_RUNTIME        = "node"
+    WEBSITE_NODE_DEFAULT_VERSION    = "~10"
+    FUNCTION_APP_EDIT_MODE          = "readonly"
+    hub_connection_string           = module.Create-Infrastructure.notificationHubs.by-transport.authorization_rules.by-transport.hub_connection_string
+    hubAccessKeyName                = "by-transport"
+    hubAccessKeySig                 = module.Create-Infrastructure.notificationHubs.by-transport.authorization_rules.by-transport.primary_access_key
+    hubName                         = "by-transport"
+    ServiceBusQueueConnectionString = module.Create-Infrastructure.queues.transport.authorization_rules.transport.primary_connection_string
+    servicebusqueuename             = "transport"
+    cosmodb_endpoint                = module.Create-Infrastructure.cosmos_connection
+    cosmodb_primaryKey              = module.Create-Infrastructure.cosmos_key
   }
 }
 
@@ -89,11 +101,17 @@ module "Create-Push-Notification-WFMR-Service" {
   aspId        = module.Create-Infrastructure.push_notification_app_service_plan
   app_name     = "cppwfmrpnservice"
   app_settings = {
-    https_only                   = true
-    FUNCTIONS_WORKER_RUNTIME     = "node"
-    WEBSITE_NODE_DEFAULT_VERSION = "~10"
-    FUNCTION_APP_EDIT_MODE       = "readonly"
-    cosmodb_endpoint           = module.Create-Infrastructure.cosmos_connection
-    cosmodb_primaryKey          = module.Create-Infrastructure.cosmos_key
+    https_only                      = true
+    FUNCTIONS_WORKER_RUNTIME        = "node"
+    WEBSITE_NODE_DEFAULT_VERSION    = "~10"
+    FUNCTION_APP_EDIT_MODE          = "readonly"
+    hub_connection_string           = module.Create-Infrastructure.notificationHubs.by-wfmr.authorization_rules.by-wfmr.hub_connection_string
+    hubAccessKeyName                = "by-wfmr"
+    hubAccessKeySig                 = module.Create-Infrastructure.notificationHubs.by-wfmr.authorization_rules.by-wfmr.primary_access_key
+    hubName                         = "by-wfmr"
+    ServiceBusQueueConnectionString = module.Create-Infrastructure.queues.wfmr.authorization_rules.wfmr.primary_connection_string
+    servicebusqueuename             = "wfmr"
+    cosmodb_endpoint                = module.Create-Infrastructure.cosmos_connection
+    cosmodb_primaryKey              = module.Create-Infrastructure.cosmos_key
   }
 }
