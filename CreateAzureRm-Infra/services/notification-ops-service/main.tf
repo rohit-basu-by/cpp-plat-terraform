@@ -31,5 +31,5 @@ module "Create-FunctionApp-Notification-Ops-App" {
   #storage_primary_connection_string = data.terraform_remote_state.infrastructure.outputs.storage_connection_string // refer module C outisde of A
   aspId                             = var.aspId
   storage_primary_connection_string = var.storage_primary_connection_string
-  app_settings                      = merge(var.app_settings, { "APPINSIGHTS_INSTRUMENTATIONKEY" : azurerm_application_insights.notification_ops.instrumentation_key, "APPLICATIONINSIGHTS_CONNECTION_STRING" : format("InstrumentationKey=%s", azurerm_application_insights.notification_ops.instrumentation_key) })
+  app_settings                      = merge(var.app_settings, { "APPINSIGHTS_INSTRUMENTATIONKEY" : azurerm_application_insights.cpp-notification_ops.instrumentation_key, "APPLICATIONINSIGHTS_CONNECTION_STRING" : format("InstrumentationKey=%s", azurerm_application_insights.cpp-notification_ops.instrumentation_key) })
 }
